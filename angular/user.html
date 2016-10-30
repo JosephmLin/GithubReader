@@ -1,0 +1,32 @@
+<div>
+  <a href="#/main">Back to Search</a>
+  <h2>{{user.name}}</h2>
+  <img ng-src="{{user.avatar_url}}" title="{{user.name}}">
+  {{error}}
+  <div>
+    Order:
+    <select ng-model="repoSortOrder">
+      <option value="+name">Name</option>
+      <option value="-stargazers_count">Stars</option>
+      <option value="+language">Language</option>
+    </select>
+  </div>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Stars</th>
+      <th>Language</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="repo in repos | orderBy:repoSortOrder ">
+      <!--This is the syntax for the order by-->
+      <td><a href="#/user/{{user.name}}/{{repo.name}}">{{repo.name}}</a></td>
+      <td>{{repo.stargazers_count | number}}</td>
+      <!--This pipe auto formats the data : 1 (digits)-->
+      <td>{{repo.language}}</td>
+    </tr>
+  </tbody>
+</table>

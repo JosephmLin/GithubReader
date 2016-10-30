@@ -1,0 +1,22 @@
+<div>
+  <h1>Contributors</h1></div>
+<a href="{{username}}">Back to Project</a>
+<div>Open Issues: {{openIssues}}</div>
+<table>
+  <thead>
+    <tr>
+      <td>
+        Username
+      </td>
+      <td>
+        Avatar
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="collab in collaborators | orderBy: collabSortOrder">
+      <td>{{collab.login}}</td>
+      <td><a href="{{collab.url}}"><img src="{{collab.avatar_url}}"></a></td>
+    </tr>
+  </tbody>
+</table>
